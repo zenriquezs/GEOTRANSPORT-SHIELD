@@ -1,0 +1,809 @@
+[
+    {
+        "id": "7586b8fae8be8931",
+        "type": "tab",
+        "label": "PROYECTO INTEGRADOR",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e7c9e5f833407ae2",
+        "type": "mqtt in",
+        "z": "7586b8fae8be8931",
+        "name": "",
+        "topic": "lora/data",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "b253f1d01d7e3bd0",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 80,
+        "y": 320,
+        "wires": [
+            [
+                "e938444f756682fe"
+            ]
+        ]
+    },
+    {
+        "id": "e938444f756682fe",
+        "type": "json",
+        "z": "7586b8fae8be8931",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 210,
+        "y": 320,
+        "wires": [
+            [
+                "ef012bfe6a3069e3",
+                "9dd7720a8e01e844",
+                "6fe2a044005f2c67"
+            ]
+        ]
+    },
+    {
+        "id": "d72393c5f749bde3",
+        "type": "ui_gauge",
+        "z": "7586b8fae8be8931",
+        "name": "",
+        "group": "9df3974e681dac1a",
+        "order": 1,
+        "width": 5,
+        "height": 5,
+        "gtype": "compass",
+        "title": "TEMPERATURA",
+        "label": "grados centígrados ºC",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 710,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ef012bfe6a3069e3",
+        "type": "function",
+        "z": "7586b8fae8be8931",
+        "name": "Formato DHT11_HUMEDAD",
+        "func": "var data = msg.payload;\n\nif (data.hasOwnProperty('datos')) {\n\n    var datos = data.datos;\n    var humIndex = datos.indexOf('Humedad:');\n    if (humIndex !== -1) {\n        var humStartIndex = humIndex + 'Humedad:'.length;\n        var humEndIndex = datos.indexOf('%', humStartIndex);\n        var humidityString = datos.substring(humStartIndex, humEndIndex);\n        var humidity = parseFloat(humidityString);\n\n        msg.payload = humidity;\n        return msg;\n    } else {\n        node.warn(\"No se puede encontrar la humedad en el mensaje recibido.\");\n        return null;\n    }\n} else {\n    node.warn(\"No se puede encontrar la clave 'datos' en el mensaje recibido.\");\n    return null;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 340,
+        "wires": [
+            [
+                "6c61247fdfb4bb20",
+                "95321bda639678b0",
+                "1a949939f36ea464",
+                "a61a62a93a017b2e",
+                "6ac15ae853f31c6e"
+            ]
+        ]
+    },
+    {
+        "id": "6c61247fdfb4bb20",
+        "type": "ui_gauge",
+        "z": "7586b8fae8be8931",
+        "name": "",
+        "group": "9df3974e681dac1a",
+        "order": 2,
+        "width": 5,
+        "height": 5,
+        "gtype": "wave",
+        "title": "HUMEDAD",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 690,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e6e96d1d8f702b5f",
+        "type": "debug",
+        "z": "7586b8fae8be8931",
+        "name": "debug 31",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "95321bda639678b0",
+        "type": "debug",
+        "z": "7586b8fae8be8931",
+        "name": "debug 32",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "9dd7720a8e01e844",
+        "type": "function",
+        "z": "7586b8fae8be8931",
+        "name": "Formato GPS_Data",
+        "func": "var data = msg.payload;\n\nif (data.hasOwnProperty('datos')) {\n    var datos = data.datos;\n    var latIndex = datos.indexOf('Latitud:');\n    if (latIndex !== -1) {\n        var latStartIndex = latIndex + 'Latitud:'.length;\n        var latEndIndex = datos.indexOf(',', latStartIndex);\n        var latString = datos.substring(latStartIndex, latEndIndex);\n        var latitud = parseFloat(latString);\n    } else {\n        node.warn(\"No se puede encontrar la latitud en el mensaje recibido.\");\n        return null;\n    }\n    var longIndex = datos.indexOf('Longitud:');\n    if (longIndex !== -1) {\n        var longStartIndex = longIndex + 'Longitud:'.length;\n        var longEndIndex = datos.indexOf(',', longStartIndex);\n        var longString = datos.substring(longStartIndex, longEndIndex);\n        var longitud = parseFloat(longString);\n    } else {\n        node.warn(\"No se puede encontrar la longitud en el mensaje recibido.\");\n        return null;\n    }\n\n    msg.payload = {\n        \"name\": \"Transporte ZS\",\n        \"lat\": latitud,\n        \"lon\": longitud,\n        \"label\": true,\n        \"icon\": \"fa-truck\",\n        \"popped\": true\n    };\n    return msg;\n} else {\n    node.warn(\"No se puede encontrar la clave 'datos' en el mensaje recibido.\");\n    return null;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 420,
+        "wires": [
+            [
+                "fba3ebb169dea32b",
+                "6fb10f5cc5089160",
+                "ac80632568f2c80a",
+                "c4246499af2f0c76",
+                "a32f8a228f157681"
+            ]
+        ]
+    },
+    {
+        "id": "fba3ebb169dea32b",
+        "type": "worldmap",
+        "z": "7586b8fae8be8931",
+        "name": "Mapa",
+        "lat": "",
+        "lon": "",
+        "zoom": "16",
+        "layer": "OSMG",
+        "cluster": "",
+        "maxage": "",
+        "usermenu": "show",
+        "panit": "false",
+        "hiderightclick": "false",
+        "coords": "none",
+        "showgrid": "false",
+        "path": "",
+        "overlist": "DR,CO,RA,DN,HM",
+        "maplist": "OSMG,OSMC,EsriC,EsriS,EsriT,EsriO,EsriDG,NatGeo,UKOS,OpTop",
+        "mapname": "",
+        "mapurl": "",
+        "mapopt": "",
+        "mapwms": false,
+        "x": 690,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "dbc0993aaf074afd",
+        "type": "template",
+        "z": "7586b8fae8be8931",
+        "name": "Dashboard Map",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<iframe src={{{payload.url}}} height=750px width=1000px ></iframe>",
+        "x": 900,
+        "y": 520,
+        "wires": [
+            [
+                "526a9b7f5939fe92"
+            ]
+        ]
+    },
+    {
+        "id": "526a9b7f5939fe92",
+        "type": "ui_template",
+        "z": "7586b8fae8be8931",
+        "group": "445b32c252eff493",
+        "name": "Mapa",
+        "order": 1,
+        "width": 14,
+        "height": 10,
+        "format": "<div ng-bind-html=\"msg.payload | trusted\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "x": 1090,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b220dc6300b4273e",
+        "type": "function",
+        "z": "7586b8fae8be8931",
+        "name": "Inject /worldmap",
+        "func": "msg.payload =   {\n                url : \"/worldmap\",\n                command : {\n                        layer:\"KIKIZA\"\n                        }\n                };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 520,
+        "wires": [
+            [
+                "dbc0993aaf074afd"
+            ]
+        ]
+    },
+    {
+        "id": "c47b7c13e3a82ce1",
+        "type": "inject",
+        "z": "7586b8fae8be8931",
+        "name": "WorldMap ingresar",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "",
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 390,
+        "y": 500,
+        "wires": [
+            [
+                "b220dc6300b4273e"
+            ]
+        ]
+    },
+    {
+        "id": "6fb10f5cc5089160",
+        "type": "function",
+        "z": "7586b8fae8be8931",
+        "name": " Municipio/Estado",
+        "func": "var currentDate = new Date();\nvar day = currentDate.getDate();\nvar month = currentDate.getMonth() + 1;\nvar year = currentDate.getFullYear();\n\nvar formattedDate = day + '/' + month + '/' + year;\n\nconst lat = msg.payload.lat;\nconst lon = msg.payload.lon;\nconst municipio = 'Hidalgo';\nmsg.payload = {\n    coordinates: {\n        date: formattedDate,\n        lat: lat,\n        lon: lon,\n        municipio: municipio\n    }\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 710,
+        "y": 480,
+        "wires": [
+            [
+                "941d56c71217428a"
+            ]
+        ]
+    },
+    {
+        "id": "941d56c71217428a",
+        "type": "template",
+        "z": "7586b8fae8be8931",
+        "name": "Tabla de Coordenadas",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<table>\n    <thead>\n        <tr>\n            <th>Fecha</th>\n            <th>Pais</th>\n            <th>Estado</th>\n            <th>Latitud</th>\n            <th>Longitud</th>\n        </tr>\n    </thead>\n    <tbody>\n        {{#payload.coordinates}}\n        <tr>\n            <td>{{date}}</td>\n            <td>Mexico</td>\n            <td>{{municipio}}</td>\n            <td>{{lat}}</td>\n            <td>{{lon}}</td>\n        </tr>\n        {{/payload.coordinates}}\n    </tbody>\n</table>\n<style>\n    table {\n        border-collapse: collapse;\n        width: 100%;\n    }\n\n    th, td {\n        border: 2px solid #097974 ;\n        text-align: left;\n        padding: 8px;\n    }\n\n\n    tr:nth-child(even) {\n        background-color: #f2f2f2;\n    }\n</style>\n",
+        "output": "str",
+        "x": 920,
+        "y": 480,
+        "wires": [
+            [
+                "e903f90fb8fc41c6"
+            ]
+        ]
+    },
+    {
+        "id": "e903f90fb8fc41c6",
+        "type": "ui_template",
+        "z": "7586b8fae8be8931",
+        "group": "757ee56e17af5501",
+        "name": "Tabla",
+        "order": 1,
+        "width": 8,
+        "height": 2,
+        "format": "<div ng-bind-html=\"msg.payload | trusted\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "x": 1090,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2cc633cf9109bb9c",
+        "type": "comment",
+        "z": "7586b8fae8be8931",
+        "name": "#097974",
+        "info": "",
+        "x": 80,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "6fe2a044005f2c67",
+        "type": "function",
+        "z": "7586b8fae8be8931",
+        "name": "Formato DHT11_TEMPERATURA",
+        "func": "var data = msg.payload;\n\nif (data.hasOwnProperty('datos')) {\n\n    var datos = data.datos;\n    var tempIndex = datos.indexOf('Temperatura:');\n    if (tempIndex !== -1) {\n        var tempStartIndex = tempIndex + 'Temperatura:'.length;\n        var tempEndIndex = datos.indexOf('°C', tempStartIndex);\n        var temperatureString = datos.substring(tempStartIndex, tempEndIndex);\n        var temperature = parseFloat(temperatureString);\n\n        msg.payload = temperature;\n        return msg;\n    } else {\n        node.warn(\"No se puede encontrar la temperatura en el mensaje recibido.\");\n        return null;\n    }\n} else {\n    node.warn(\"No se puede encontrar la clave 'datos' en el mensaje recibido.\");\n    return null;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 140,
+        "wires": [
+            [
+                "e6e96d1d8f702b5f",
+                "83b5ef330a0b40b9",
+                "d72393c5f749bde3",
+                "cf962be50623d3e5",
+                "c87349d445d1a076"
+            ]
+        ]
+    },
+    {
+        "id": "951e4ce026c840dd",
+        "type": "ui_audio",
+        "z": "7586b8fae8be8931",
+        "name": "",
+        "group": "445b32c252eff493",
+        "voice": "Microsoft Raul - Spanish (Mexico)",
+        "always": true,
+        "x": 880,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "83b5ef330a0b40b9",
+        "type": "function",
+        "z": "7586b8fae8be8931",
+        "name": "function 21",
+        "func": "if (msg.payload > 40) {\n    var notification = {\n        payload: \"Peligro la temperatura es mayor a 30 grados Celsius.\"\n    };\n    return notification;\n} else {\n    return null;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 100,
+        "wires": [
+            [
+                "c045c4f804667579",
+                "951e4ce026c840dd"
+            ]
+        ]
+    },
+    {
+        "id": "c045c4f804667579",
+        "type": "function",
+        "z": "7586b8fae8be8931",
+        "name": "function 22",
+        "func": "msg.payload = \"TEMPERATURA ESTA FUERA DEL RANGO☣️\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n//primer valor es el {nombre y despues el valor}\nif (flow.get(\"PlayAudio\") === undefined) {\n    flow.set(\"PlayAudio\", false);\n}",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 60,
+        "wires": [
+            [
+                "42f38521c8674eed"
+            ]
+        ]
+    },
+    {
+        "id": "42f38521c8674eed",
+        "type": "ui_toast",
+        "z": "7586b8fae8be8931",
+        "position": "top right",
+        "displayTime": "4",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1070,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "1a949939f36ea464",
+        "type": "function",
+        "z": "7586b8fae8be8931",
+        "name": "function 23",
+        "func": "if (msg.payload > 40) {\n    var notification = {\n        payload: \"Peligro la Humedad es mayor a 30%\"\n    };\n    return notification;\n} else {\n    return null;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 300,
+        "wires": [
+            [
+                "49210225f9ae4003",
+                "26c80cafd4aaee0a"
+            ]
+        ]
+    },
+    {
+        "id": "49210225f9ae4003",
+        "type": "function",
+        "z": "7586b8fae8be8931",
+        "name": "function 24",
+        "func": "msg.payload = \"LA HUMEDAD ESTA FUERA DEL RANGO☣️\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\n//primer valor es el {nombre y despues el valor}\nif (flow.get(\"PlayAudio\") === undefined) {\n    flow.set(\"PlayAudio\", false);\n}",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 260,
+        "wires": [
+            [
+                "c0c01643e2922b0d"
+            ]
+        ]
+    },
+    {
+        "id": "c0c01643e2922b0d",
+        "type": "ui_toast",
+        "z": "7586b8fae8be8931",
+        "position": "top right",
+        "displayTime": "4",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1090,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "26c80cafd4aaee0a",
+        "type": "ui_audio",
+        "z": "7586b8fae8be8931",
+        "name": "",
+        "group": "445b32c252eff493",
+        "voice": "Microsoft Raul - Spanish (Mexico)",
+        "always": true,
+        "x": 880,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "5578ae390e942370",
+        "type": "comment",
+        "z": "7586b8fae8be8931",
+        "name": "Carga Sensible a la Temperatura: ",
+        "info": "",
+        "x": 150,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "b3535091efa7fd12",
+        "type": "comment",
+        "z": "7586b8fae8be8931",
+        "name": " Refrigerada: entre -18°C y 25°C. ",
+        "info": "",
+        "x": 150,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "4b07f1d4f204b6df",
+        "type": "comment",
+        "z": "7586b8fae8be8931",
+        "name": "Controlada: entre 2°C y 8°C (para productos farmacéuticos sensibles).",
+        "info": "",
+        "x": 270,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "3b2dda07b54ce69f",
+        "type": "comment",
+        "z": "7586b8fae8be8931",
+        "name": "Carga Sensible a la Humedad:",
+        "info": "",
+        "x": 150,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "b5d669a1917ac4a2",
+        "type": "comment",
+        "z": "7586b8fae8be8931",
+        "name": "Humedad relativa controlada: Entre el 40% y el 60% (para productos sensibles como electrónicos, madera, papel, etc.).",
+        "info": "",
+        "x": 420,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "e04fa9a6b724ce9d",
+        "type": "node-red-contrib-whatsapp-cmb-send-message",
+        "z": "7586b8fae8be8931",
+        "name": "",
+        "account": "fd55c353653dbb92",
+        "text": "text",
+        "inputtypemessage": "msg",
+        "rejectssl": false,
+        "x": 900,
+        "y": 20,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cf962be50623d3e5",
+        "type": "function",
+        "z": "7586b8fae8be8931",
+        "name": "function 25",
+        "func": "let valor = msg.payload;\nif (valor > 30) {\n    msg.topic = \"+34644519523\"; \n    msg.text = \"TEMPERATURA ESTA FUERA DEL RANGO☣️\";\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 40,
+        "wires": [
+            [
+                "e04fa9a6b724ce9d"
+            ]
+        ]
+    },
+    {
+        "id": "a61a62a93a017b2e",
+        "type": "function",
+        "z": "7586b8fae8be8931",
+        "name": "function 26",
+        "func": "let valor = msg.payload;\nif (valor > 30) {\n    msg.topic = \"+34644519523\"; \n    msg.text = \"HUMEDAD ESTA FUERA DEL RANGO☣️\";\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 690,
+        "y": 380,
+        "wires": [
+            [
+                "6854116d39696ab3"
+            ]
+        ]
+    },
+    {
+        "id": "6854116d39696ab3",
+        "type": "node-red-contrib-whatsapp-cmb-send-message",
+        "z": "7586b8fae8be8931",
+        "name": "",
+        "account": "fd55c353653dbb92",
+        "text": "text",
+        "inputtypemessage": "msg",
+        "rejectssl": false,
+        "x": 900,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ac80632568f2c80a",
+        "type": "debug",
+        "z": "7586b8fae8be8931",
+        "name": "debug 36",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "c4246499af2f0c76",
+        "type": "debug",
+        "z": "7586b8fae8be8931",
+        "name": "debug 38",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "c87349d445d1a076",
+        "type": "influxdb out",
+        "z": "7586b8fae8be8931",
+        "influxdb": "aa20e042b2d0413e",
+        "name": "Temperatura",
+        "measurement": "Temperatura",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "Sensores_Transporte",
+        "bucket": "SensorTemperatura",
+        "x": 690,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a32f8a228f157681",
+        "type": "influxdb out",
+        "z": "7586b8fae8be8931",
+        "influxdb": "aa20e042b2d0413e",
+        "name": "GPS",
+        "measurement": "Influx_GPS",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "Sensores_Transporte",
+        "bucket": "GPS_BD",
+        "x": 670,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "6ac15ae853f31c6e",
+        "type": "influxdb out",
+        "z": "7586b8fae8be8931",
+        "influxdb": "aa20e042b2d0413e",
+        "name": "Humedad",
+        "measurement": "Humedad",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "Sensores_Transporte",
+        "bucket": "SensorHumedad",
+        "x": 680,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b253f1d01d7e3bd0",
+        "type": "mqtt-broker",
+        "name": "Local MQTT Broker",
+        "broker": " 178.6.9.35",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "9df3974e681dac1a",
+        "type": "ui_group",
+        "name": "SENSORES",
+        "tab": "df4f62c14fb84e79",
+        "order": 1,
+        "disp": true,
+        "width": "5",
+        "collapse": false
+    },
+    {
+        "id": "445b32c252eff493",
+        "type": "ui_group",
+        "name": "GPS",
+        "tab": "df4f62c14fb84e79",
+        "order": 2,
+        "disp": true,
+        "width": 14,
+        "collapse": false
+    },
+    {
+        "id": "757ee56e17af5501",
+        "type": "ui_group",
+        "name": "TABLA DE DATOS",
+        "tab": "df4f62c14fb84e79",
+        "order": 3,
+        "disp": true,
+        "width": "8",
+        "collapse": false
+    },
+    {
+        "id": "fd55c353653dbb92",
+        "type": "node-red-contrib-whatsapp-cmb-account",
+        "name": "ENRIQUE ZS BB"
+    },
+    {
+        "id": "aa20e042b2d0413e",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": "8086",
+        "protocol": "http",
+        "database": "database",
+        "name": "BD_GPS_DATA",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://localhost:8086",
+        "timeout": "10",
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "df4f62c14fb84e79",
+        "type": "ui_tab",
+        "name": "INTERFAZ DE DATOS",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
