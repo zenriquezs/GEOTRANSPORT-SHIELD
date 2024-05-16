@@ -196,7 +196,7 @@ Este proyecto integra diversos nodos en Node-RED para monitorear y controlar sen
 - **UI Gauge (Humedad)**: Muestra el porcentaje de humedad.
 - **Worldmap**: Muestra la ubicación en un mapa.
 
-![DASHBOARD](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436270459_458930153330118_762916704406892469_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=h0odaIv2zEUQ7kNvgFtr9en&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYB6n_uO4jU6mhT7TLg2Oa98hV8YSsbohtLAFRfXtze7Kg&oe=6644F2F7)
+![DASHBOARD](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436270459_458930153330118_762916704406892469_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=M7dOembK_TkQ7kNvgE-_NUK&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAuZn4gvpU1kLI9rkE_Jnt1R2mYRxxGPwZUmnKcR-Rgqw&oe=664B5237)
 
 ### Notificaciones
 - **Función**: Envia notificaciones vía WhatsApp en caso de valores fuera de rango de temperatura y humedad.
