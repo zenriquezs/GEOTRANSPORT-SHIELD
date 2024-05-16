@@ -207,7 +207,7 @@ Hemos configurado nodos de InfluxDB en nuestro flujo de Node-RED para almacenar 
    
   Estos nodos están configurados para enviar datos a una base de datos de InfluxDB ubicada en 127.0.0.1:8086 a través del protocolo HTTP. Utilizan la base de datos llamada "database", perteneciente a la organización "Sensores_Transporte".
   
-   ###Configuración de los nodos de InfluxDB en Node-RED.
+   ### Configuración de los nodos de InfluxDB en Node-RED.
 - **Temperatura:**
   - **Measurement:** Temperatura
   - **Bucket:** SensorTemperatura
