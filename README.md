@@ -255,6 +255,7 @@ Grafana es una herramienta poderosa para la visualización de datos y el monitor
 
 Con Grafana, puedes crear visualizaciones potentes y personalizadas de tus datos almacenados en InfluxDB, lo que te permite comprender mejor tus sistemas y tomar decisiones informadas.
 
+## Resultado Final 
 
 
 ## Instalación
