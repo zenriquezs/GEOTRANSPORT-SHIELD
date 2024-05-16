@@ -154,4 +154,41 @@ Este proyecto integra diversos nodos en Node-RED para monitorear y controlar sen
 3. Configura los archivos .INO y el flujo con tus datos específicos.
 4. Ejecuta los Sketch y el flujo en Node-RED.
 
+## Configuración del Gateway IoT
 
+Para nuestro Gateway IoT, es necesario contar con una Raspberry Pi previamente configurada con el sistema operativo Raspbian.
+![Raspberry](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/440942315_462030883020045_8914836050148913492_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=FVFTtciv5_EQ7kNvgGyeUKi&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYCkVZy3z4VTrvWsas9iAW1jwpks-aI3EbSOcuAuzpZ5dA&oe=664B44A3)
+## Instalación de Servicios
+
+Utilizaremos contenedores proporcionados por la aplicación IOTstack para la instalación de los servicios necesarios para nuestro proyecto, incluyendo Node-RED, Grafana y InfluxDB.
+
+1. Descarga y ejecución del menú de IOTstack:
+- bash
+- cd ~/IOTstack
+- ./menu.sh
+2. Selecciona los contenedores deseados del catálogo proporcionado para su instalación.
+
+3. Una vez instalados, activa los contenedores con el siguiente comando:
+- cd ~/IOTstack
+- docker-compose up -d
+
+## Instalación y Configuración de Mosquitto
+Para utilizar el servicio Mosquitto, primero debemos asegurarnos de que estamos utilizando el sistema operativo Raspbian Buster.
+- lsb_release -a
+
+### Agregar el Repositorio de Mosquitto
+Importa la llave del repositorio y agrega el repositorio Mosquitto correspondiente a tu versión de Raspbian.
+- wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
+- sudo apt-key add mosquitto-repo.gpg.key
+- cd /etc/apt/sources.list.d/
+- sudo wget http://repo.mosquitto.org/debian/mosquitto-buster.list
+
+###Instalación de Mosquitto
+Instala Mosquitto y los clientes de Mosquitto.
+
+- sudo apt install mosquitto mosquitto-clients
+
+### Configuración y Prueba de Mosquitto
+Para que MQTT se inicie automáticamente al reiniciar la Raspberry Pi:
+
+- sudo systemctl enable mosquitto
