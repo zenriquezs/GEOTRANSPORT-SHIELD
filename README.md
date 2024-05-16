@@ -119,6 +119,54 @@ Este archivo contiene el código fuente de un dispositivo IoT que utiliza tecnol
 
 4. Carga el código en tu dispositivo.
 
+## Configuración del Gateway IoT
+
+Para nuestro Gateway IoT, es necesario contar con una Raspberry Pi previamente configurada con el sistema operativo Raspbian.
+![Raspberry](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/440942315_462030883020045_8914836050148913492_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=FVFTtciv5_EQ7kNvgGyeUKi&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYCkVZy3z4VTrvWsas9iAW1jwpks-aI3EbSOcuAuzpZ5dA&oe=664B44A3)
+## Instalación de Servicios
+![Services](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443697865_462038419685958_7255652886975180424_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=dmaw6fgYlloQ7kNvgE3dBK0&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBTVSHxgY8oEc4S16_TDcHHp6JsJSCGtMBFYGOXP34-xg&oe=664B65B4)
+Utilizaremos contenedores proporcionados por la aplicación IOTstack para la instalación de los servicios necesarios para nuestro proyecto, incluyendo Node-RED, Grafana y InfluxDB.
+
+
+1. Descarga y ejecución del menú de IOTstack:
+- bash
+- cd ~/IOTstack
+- ./menu.sh
+
+![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436202234_462034766352990_472832190792485744_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=mt4YcsMw80YQ7kNvgFcFr6f&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYChh5xdg9gUSJXxvOqs0XCEkXBgmYHKNzUkP_dxTf6j-A&oe=664B4433)
+2. Selecciona los contenedores deseados del catálogo proporcionado para su instalación.
+
+3. Una vez instalados, activa los contenedores con el siguiente comando:
+- cd ~/IOTstack
+- docker-compose up -d
+
+![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443699106_462034746352992_2754388878349414799_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Esn-2HyeLJQQ7kNvgEnVWhJ&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYATJ-B8GThx25IC4dSqGz-CLcIThA-kLwoO-U2Uuv2TBQ&oe=664B51D3)
+
+## Instalación y Configuración de Mosquitto
+Para utilizar el servicio Mosquitto, primero debemos asegurarnos de que estamos utilizando el sistema operativo Raspbian Buster.
+- lsb_release -a
+
+![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443873778_462034736352993_8546870462017293521_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=C4295ZQHcGgQ7kNvgEbgXw2&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDxnZRWu68RIFFAdpskwu17IOZgN6beiUzDkg3MSJswHQ&oe=664B66A0)
+### Agregar el Repositorio de Mosquitto
+Importa la llave del repositorio y agrega el repositorio Mosquitto correspondiente a tu versión de Raspbian.
+- wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
+- sudo apt-key add mosquitto-repo.gpg.key
+- cd /etc/apt/sources.list.d/
+- sudo wget http://repo.mosquitto.org/debian/mosquitto-buster.list
+
+![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443697258_462034706352996_1303846566650950438_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=CoYM5JOnGL8Q7kNvgErp-uM&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBIBHlKHAYMbAmFBykj7hUEf07c-ZcMHbW78uWybjKeHA&oe=664B4CDC)
+###Instalación de Mosquitto
+Instala Mosquitto y los clientes de Mosquitto.
+
+- sudo apt install mosquitto mosquitto-clients
+
+![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436236167_462034693019664_9133623292363947329_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=V1h1gijO1AgQ7kNvgHro69d&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDrGpaVBudBtZcI3ZgnBrLnZR2tr9QFE78LSEF1ecV7Kw&oe=664B3986)
+### Configuración y Prueba de Mosquitto
+Para que MQTT se inicie automáticamente al reiniciar la Raspberry Pi:
+
+- sudo systemctl enable mosquitto
+
+![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436311289_462034696352997_3159305224379812235_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=JC9b4R-LJ3YQ7kNvgHJJbKN&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDiHlJQGBmy1cWtk7aU1nDkXIH91354kRcwJVWps4xkdg&oe=664B6D1E)
 
 ##  Configuraciónes Node-Red
 ### Descripción
@@ -153,42 +201,3 @@ Este proyecto integra diversos nodos en Node-RED para monitorear y controlar sen
 2. Importa los codigos de Arduino(Transmisor y Receptor) y el flujo de Node-RED.
 3. Configura los archivos .INO y el flujo con tus datos específicos.
 4. Ejecuta los Sketch y el flujo en Node-RED.
-
-## Configuración del Gateway IoT
-
-Para nuestro Gateway IoT, es necesario contar con una Raspberry Pi previamente configurada con el sistema operativo Raspbian.
-![Raspberry](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/440942315_462030883020045_8914836050148913492_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=FVFTtciv5_EQ7kNvgGyeUKi&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYCkVZy3z4VTrvWsas9iAW1jwpks-aI3EbSOcuAuzpZ5dA&oe=664B44A3)
-## Instalación de Servicios
-
-Utilizaremos contenedores proporcionados por la aplicación IOTstack para la instalación de los servicios necesarios para nuestro proyecto, incluyendo Node-RED, Grafana y InfluxDB.
-
-1. Descarga y ejecución del menú de IOTstack:
-- bash
-- cd ~/IOTstack
-- ./menu.sh
-2. Selecciona los contenedores deseados del catálogo proporcionado para su instalación.
-
-3. Una vez instalados, activa los contenedores con el siguiente comando:
-- cd ~/IOTstack
-- docker-compose up -d
-
-## Instalación y Configuración de Mosquitto
-Para utilizar el servicio Mosquitto, primero debemos asegurarnos de que estamos utilizando el sistema operativo Raspbian Buster.
-- lsb_release -a
-
-### Agregar el Repositorio de Mosquitto
-Importa la llave del repositorio y agrega el repositorio Mosquitto correspondiente a tu versión de Raspbian.
-- wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
-- sudo apt-key add mosquitto-repo.gpg.key
-- cd /etc/apt/sources.list.d/
-- sudo wget http://repo.mosquitto.org/debian/mosquitto-buster.list
-
-###Instalación de Mosquitto
-Instala Mosquitto y los clientes de Mosquitto.
-
-- sudo apt install mosquitto mosquitto-clients
-
-### Configuración y Prueba de Mosquitto
-Para que MQTT se inicie automáticamente al reiniciar la Raspberry Pi:
-
-- sudo systemctl enable mosquitto
