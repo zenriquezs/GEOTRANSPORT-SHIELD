@@ -197,15 +197,40 @@ Este proyecto integra diversos nodos en Node-RED para monitorear y controlar sen
 - **Worldmap**: Muestra la ubicación en un mapa.
 
 ![DASHBOARD](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436270459_458930153330118_762916704406892469_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=h0odaIv2zEUQ7kNvgFtr9en&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYB6n_uO4jU6mhT7TLg2Oa98hV8YSsbohtLAFRfXtze7Kg&oe=6644F2F7)
-
-### Almacenamiento de datos
-- **Función Guardar en Array (Temperatura/Humedad)**: Guarda los datos en un array para el historial.
-- **UI Chart**: Muestra gráficos de la temperatura y humedad en tiempo real.
-
 ### Notificaciones
 - **Función**: Envia notificaciones vía WhatsApp en caso de valores fuera de rango de temperatura y humedad.
 
+## Visualización de datos con Grafana
 
+Grafana es una herramienta poderosa para la visualización de datos y el monitoreo de sistemas. Con Grafana, podemos crear paneles personalizados que muestran datos en tiempo real de manera visualmente atractiva. En este caso, utilizaremos Grafana para visualizar los datos almacenados en la base de datos de InfluxDB que hemos configurado previamente en Node-RED.
+
+### Pasos para la configuración:
+
+1. **Instalación de Grafana:**
+   - Descarga e instala Grafana desde el [sitio web oficial de Grafana](https://grafana.com/get).
+
+2. **Conexión a la base de datos de InfluxDB:**
+   - Abre la interfaz web de Grafana y accede al panel de configuración.
+   ![GRAFANA](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436258003_462052059684594_1042560935193682446_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=FY3iBug6qu0Q7kNvgGcT752&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAg5i5Z52N8l3x_dl8gZ3XMSDRCLd9JJzHEPklTDgXtTw&oe=664B7A9B)
+   
+   - Agrega una nueva fuente de datos y selecciona InfluxDB.
+   ![GRAFANA](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436455494_462052043017929_7072058896767949797_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=tZv3jU6SFCcQ7kNvgEOuaZj&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYB-assb66FogK9iDHwjO2jBAHSANQ-NpbZeNqJvkc-Nyw&oe=664B72BC)
+   
+   - Completa los campos necesarios con la información de conexión a la base de datos de InfluxDB que has configurado previamente en Node-RED.
+![GRAFANA](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443698913_462051983017935_426352716898106986_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yR2w9K-GQpcQ7kNvgHns0nE&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBhHYY8PYWn0J77MuO6Yl_6HUC9SIvv5JjER1Z22Y4M7A&oe=664B63A9)
+
+3. **Creación de paneles:**
+   - Una vez que Grafana esté conectado a la base de datos de InfluxDB, puedes comenzar a crear paneles para visualizar tus datos.
+   - Haz clic en "Crear" y selecciona el tipo de panel que deseas crear (gráfico de líneas, gráfico de barras, tabla, etc.).
+   - Configura la consulta para seleccionar los datos de la base de datos de InfluxDB que deseas visualizar en el panel.
+  ![GRAFANA](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443699229_462055833017550_7294549411968241810_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=W36Hb1cD5VAQ7kNvgG4PXdp&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBz6aVrTrxJ9PgWMm_3JsdeSZOKafwg4F-SlPZQzlgGbA&oe=664B5CEF)
+  
+4. **Personalización y configuración avanzada:**
+   - Personaliza la apariencia y configuración del panel según tus necesidades.
+   - Agrega múltiples series temporales, ajusta los ejes, define alertas, y más para crear visualizaciones efectivas de tus datos.
+   ![GRAFANA](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443841211_462055819684218_1346133273310196898_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=P36DHgmMxjsQ7kNvgHTnuZp&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBk1DVX-hkBL9KyHJugKaPtBmDH1VDJ54PVe_xHEzXaUw&oe=664B5022)
+
+Con Grafana, puedes crear visualizaciones potentes y personalizadas de tus datos almacenados en InfluxDB, lo que te permite comprender mejor tus sistemas y tomar decisiones informadas.
 
 
 
