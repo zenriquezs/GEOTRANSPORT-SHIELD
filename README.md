@@ -137,6 +137,7 @@ Utilizaremos contenedores proporcionados por la aplicación IOTstack para la ins
 - ./menu.sh
 
 ![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436202234_462034766352990_472832190792485744_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=mt4YcsMw80YQ7kNvgFcFr6f&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYChh5xdg9gUSJXxvOqs0XCEkXBgmYHKNzUkP_dxTf6j-A&oe=664B4433)
+
 2. Selecciona los contenedores deseados del catálogo proporcionado para su instalación.
 
 3. Una vez instalados, activa los contenedores con el siguiente comando:
@@ -150,6 +151,7 @@ Para utilizar el servicio Mosquitto, primero debemos asegurarnos de que estamos 
 - lsb_release -a
 
 ![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443873778_462034736352993_8546870462017293521_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=C4295ZQHcGgQ7kNvgEbgXw2&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDxnZRWu68RIFFAdpskwu17IOZgN6beiUzDkg3MSJswHQ&oe=664B66A0)
+
 ### Agregar el Repositorio de Mosquitto
 Importa la llave del repositorio y agrega el repositorio Mosquitto correspondiente a tu versión de Raspbian.
 - wget http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
@@ -158,12 +160,14 @@ Importa la llave del repositorio y agrega el repositorio Mosquitto correspondien
 - sudo wget http://repo.mosquitto.org/debian/mosquitto-buster.list
 
 ![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443697258_462034706352996_1303846566650950438_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=CoYM5JOnGL8Q7kNvgErp-uM&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBIBHlKHAYMbAmFBykj7hUEf07c-ZcMHbW78uWybjKeHA&oe=664B4CDC)
+
 ###Instalación de Mosquitto
 Instala Mosquitto y los clientes de Mosquitto.
 
 - sudo apt install mosquitto mosquitto-clients
 
 ![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436236167_462034693019664_9133623292363947329_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=V1h1gijO1AgQ7kNvgHro69d&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDrGpaVBudBtZcI3ZgnBrLnZR2tr9QFE78LSEF1ecV7Kw&oe=664B3986)
+
 ### Configuración y Prueba de Mosquitto
 Para que MQTT se inicie automáticamente al reiniciar la Raspberry Pi:
 
@@ -177,6 +181,7 @@ Este proyecto integra diversos nodos en Node-RED para monitorear y controlar sen
 
 ## Configuraciones de nodos
 ![Nodos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436206065_458929326663534_5530785465182898519_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=65-Ck9FfRrkQ7kNvgECBQOz&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDnei1lZqut9QPFS_pJSZ1aN83jzxNl_h8GaGXIZmidlQ&oe=6644D7BA)
+
 ### MQTT In
 - **Topic**: `<NOMBRE_DEL_TOPIC>` 
 - **QoS**: 2
@@ -192,6 +197,7 @@ Este proyecto integra diversos nodos en Node-RED para monitorear y controlar sen
 - **Worldmap**: Muestra la ubicación en un mapa.
 
 ![DASHBOARD](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436270459_458930153330118_762916704406892469_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=h0odaIv2zEUQ7kNvgFtr9en&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYB6n_uO4jU6mhT7TLg2Oa98hV8YSsbohtLAFRfXtze7Kg&oe=6644F2F7)
+
 ### Almacenamiento de datos
 - **Función Guardar en Array (Temperatura/Humedad)**: Guarda los datos en un array para el historial.
 - **UI Chart**: Muestra gráficos de la temperatura y humedad en tiempo real.
