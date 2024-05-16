@@ -197,8 +197,31 @@ Este proyecto integra diversos nodos en Node-RED para monitorear y controlar sen
 - **Worldmap**: Muestra la ubicación en un mapa.
 
 ![DASHBOARD](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436270459_458930153330118_762916704406892469_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=h0odaIv2zEUQ7kNvgFtr9en&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYB6n_uO4jU6mhT7TLg2Oa98hV8YSsbohtLAFRfXtze7Kg&oe=6644F2F7)
+
 ### Notificaciones
 - **Función**: Envia notificaciones vía WhatsApp en caso de valores fuera de rango de temperatura y humedad.
+
+## Almacenamiento de datos en Node-RED
+Hemos configurado nodos de InfluxDB en nuestro flujo de Node-RED para almacenar los datos recibidos en nuestra base de datos. Estos nodos envían los datos de manera estructurada a InfluxDB, que ofrece un almacenamiento eficiente de series temporales. Esta integración nos proporciona escalabilidad y flexibilidad para gestionar grandes volúmenes de datos y realizar análisis efectivos.
+   ![INFLUXDB](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/435924901_462046626351804_2752548772844671832_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=mLGUU2vJEBYQ7kNvgEyW6j2&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAucrZRp1QUTBsq6OjekSr8P7tbEWHVsm-uEPCJfPL0hw&oe=664B5D89)
+   
+  Estos nodos están configurados para enviar datos a una base de datos de InfluxDB ubicada en 127.0.0.1:8086 a través del protocolo HTTP. Utilizan la base de datos llamada "database", perteneciente a la organización "Sensores_Transporte".
+  
+   ###Configuración de los nodos de InfluxDB en Node-RED.
+- **Temperatura:**
+  - **Measurement:** Temperatura
+  - **Bucket:** SensorTemperatura
+
+- **GPS:**
+  - **Measurement:** Influx_GPS
+  - **Bucket:** GPS_BD
+
+- **Humedad:**
+  - **Measurement:** Humedad
+  - **Bucket:** SensorHumedad
+
+Cada nodo está diseñado para manejar un tipo específico de datos y enviarlos a la base de datos correspondiente en InfluxDB, lo que permite una organización eficiente y una gestión adecuada de los datos dentro del sistema de Node-RED.
+
 
 ## Visualización de datos con Grafana
 
