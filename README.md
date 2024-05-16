@@ -161,7 +161,7 @@ Importa la llave del repositorio y agrega el repositorio Mosquitto correspondien
 
 ![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443697258_462034706352996_1303846566650950438_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=CoYM5JOnGL8Q7kNvgErp-uM&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBIBHlKHAYMbAmFBykj7hUEf07c-ZcMHbW78uWybjKeHA&oe=664B4CDC)
 
-###Instalación de Mosquitto
+### Instalación de Mosquitto
 Instala Mosquitto y los clientes de Mosquitto.
 
 - sudo apt install mosquitto mosquitto-clients
