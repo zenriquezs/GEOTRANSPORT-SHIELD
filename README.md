@@ -122,10 +122,13 @@ Este archivo contiene el código fuente de un dispositivo IoT que utiliza tecnol
 ## Configuración del Gateway IoT
 
 Para nuestro Gateway IoT, es necesario contar con una Raspberry Pi previamente configurada con el sistema operativo Raspbian.
+
 ![Raspberry](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/440942315_462030883020045_8914836050148913492_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=FVFTtciv5_EQ7kNvgGyeUKi&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYCkVZy3z4VTrvWsas9iAW1jwpks-aI3EbSOcuAuzpZ5dA&oe=664B44A3)
+
 ## Instalación de Servicios
-![Services](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443697865_462038419685958_7255652886975180424_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=dmaw6fgYlloQ7kNvgE3dBK0&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBTVSHxgY8oEc4S16_TDcHHp6JsJSCGtMBFYGOXP34-xg&oe=664B65B4)
 Utilizaremos contenedores proporcionados por la aplicación IOTstack para la instalación de los servicios necesarios para nuestro proyecto, incluyendo Node-RED, Grafana y InfluxDB.
+
+![Services](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443697865_462038419685958_7255652886975180424_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=dmaw6fgYlloQ7kNvgE3dBK0&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBTVSHxgY8oEc4S16_TDcHHp6JsJSCGtMBFYGOXP34-xg&oe=664B65B4)
 
 
 1. Descarga y ejecución del menú de IOTstack:
@@ -195,6 +198,10 @@ Este proyecto integra diversos nodos en Node-RED para monitorear y controlar sen
 
 ### Notificaciones
 - **Función**: Envia notificaciones vía WhatsApp en caso de valores fuera de rango de temperatura y humedad.
+
+
+
+
 
 ## Instalación
 1. Clona este repositorio.
