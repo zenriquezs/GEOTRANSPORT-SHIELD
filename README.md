@@ -112,10 +112,10 @@ Este archivo contiene el código fuente de un dispositivo IoT que utiliza tecnol
 ![Establecimiento de la banda ](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436232622_458892376667229_3220963062338091565_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=YJC-9mWhbIEQ7kNvgF4K4kz&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAE-eJwSnanmugVU1jXMb-amhHWpRuXKkNDfQIciDhAZw&oe=6644BDA5)
 
 2. Definir direcciones en un sistema de comunicación
-![Direcciones](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436255367_458887033334430_6982264031401776534_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=IrSg-5HfjX4Q7kNvgFuQSaF&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAaed5_TSmqaSHeJNsiLDPnbKccfeiRyYQKeSm0wW4N1w&oe=6644B107)
+![Direcciones](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436255367_458887033334430_6982264031401776534_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=aKeP9BmuVCcQ7kNvgEdTunU&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAZZIGmNwmx2_B_8YQEmakYglIY4DE_mQ0hxBVC0lPMCQ&oe=66521847)
 
 3. Configura las credenciales de WiFi y MQTT según tu entorno.
-![Configura las credenciales de WiFi y MQTT según tu entorno. ](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/435999918_458908796665587_6514518093115397567_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=69YTRQbb1VwQ7kNvgHRLao7&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBqywZn1dBsZvu258Iu_wYA77Nz0-9OvryqFF1FAnxTmw&oe=6644DBD7)
+![Configura las credenciales de WiFi y MQTT según tu entorno. ](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436255367_458887033334430_6982264031401776534_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=aKeP9BmuVCcQ7kNvgEdTunU&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAZZIGmNwmx2_B_8YQEmakYglIY4DE_mQ0hxBVC0lPMCQ&oe=66521847)
 
 4. Carga el código en tu dispositivo.
 
@@ -128,7 +128,7 @@ Para nuestro Gateway IoT, es necesario contar con una Raspberry Pi previamente c
 ## Instalación de Servicios
 Utilizaremos contenedores proporcionados por la aplicación IOTstack para la instalación de los servicios necesarios para nuestro proyecto, incluyendo Node-RED, Grafana y InfluxDB.
 
-![Services](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443697865_462038419685958_7255652886975180424_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ujj-RXDx9IUQ7kNvgE9NOhy&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDUwXEbyTMar30dqYB9eR8ROV3yHDJTf9UEkLmzmOwmSw&oe=6651FD34)
+![Services](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443697865_462038419685958_7255652886975180424_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=dmaw6fgYlloQ7kNvgE3dBK0&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBTVSHxgY8oEc4S16_TDcHHp6JsJSCGtMBFYGOXP34-xg&oe=664B65B4)
 
 
 1. Descarga y ejecución del menú de IOTstack:
@@ -136,7 +136,7 @@ Utilizaremos contenedores proporcionados por la aplicación IOTstack para la ins
 - cd ~/IOTstack
 - ./menu.sh
 
-![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436202234_462034766352990_472832190792485744_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=mt4YcsMw80YQ7kNvgFcFr6f&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYChh5xdg9gUSJXxvOqs0XCEkXBgmYHKNzUkP_dxTf6j-A&oe=664B4433)
+![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436255367_458887033334430_6982264031401776534_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=aKeP9BmuVCcQ7kNvgEdTunU&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAZZIGmNwmx2_B_8YQEmakYglIY4DE_mQ0hxBVC0lPMCQ&oe=66521847)
 
 2. Selecciona los contenedores deseados del catálogo proporcionado para su instalación.
 
@@ -144,7 +144,7 @@ Utilizaremos contenedores proporcionados por la aplicación IOTstack para la ins
 - cd ~/IOTstack
 - docker-compose up -d
 
-![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443699106_462034746352992_2754388878349414799_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Esn-2HyeLJQQ7kNvgEnVWhJ&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYATJ-B8GThx25IC4dSqGz-CLcIThA-kLwoO-U2Uuv2TBQ&oe=664B51D3)
+![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443873778_462034736352993_8546870462017293521_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ds-o1Dum5xUQ7kNvgGmd-Y0&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBpFvZhUpS05W7QYIyhTSXx3bO1hRIo62yvWpV2sYNBjA&oe=6651FE20)
 
 ## Instalación y Configuración de Mosquitto
 Para utilizar el servicio Mosquitto, primero debemos asegurarnos de que estamos utilizando el sistema operativo Raspbian Buster.
