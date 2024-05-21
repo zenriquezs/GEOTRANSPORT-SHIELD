@@ -128,7 +128,7 @@ Para nuestro Gateway IoT, es necesario contar con una Raspberry Pi previamente c
 ## Instalación de Servicios
 Utilizaremos contenedores proporcionados por la aplicación IOTstack para la instalación de los servicios necesarios para nuestro proyecto, incluyendo Node-RED, Grafana y InfluxDB.
 
-![Services](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443697865_462038419685958_7255652886975180424_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=dmaw6fgYlloQ7kNvgE3dBK0&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBTVSHxgY8oEc4S16_TDcHHp6JsJSCGtMBFYGOXP34-xg&oe=664B65B4)
+![Services](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443697865_462038419685958_7255652886975180424_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ujj-RXDx9IUQ7kNvgE9NOhy&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDUwXEbyTMar30dqYB9eR8ROV3yHDJTf9UEkLmzmOwmSw&oe=6651FD34)
 
 
 1. Descarga y ejecución del menú de IOTstack:
