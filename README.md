@@ -254,9 +254,13 @@ Grafana es una herramienta poderosa para la visualización de datos y el monitor
    ![GRAFANA](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443841211_462055819684218_1346133273310196898_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=P36DHgmMxjsQ7kNvgHTnuZp&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBk1DVX-hkBL9KyHJugKaPtBmDH1VDJ54PVe_xHEzXaUw&oe=664B5022)
 
 Con Grafana, puedes crear visualizaciones potentes y personalizadas de tus datos almacenados en InfluxDB, lo que te permite comprender mejor tus sistemas y tomar decisiones informadas.
-
+##Diagrama 
+ ![GEOTRANSPORT SHIELD](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443842683_465453749344425_6476427961312632087_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=rpDq7ZDY4rcQ7kNvgGpFEfG&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDFbFProdkSFVF6xwvRGyrvAmaCnUyb2NTbay1YFRdgsw&oe=66522660)
+  
 ## Resultado Final 
-
+  ![GEOTRANSPORT SHIELD](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436467704_465426442680489_5973520116706160159_n.jpg?stp=cp6_dst-jpg&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=1B7fDSXixJ8Q7kNvgGnfQz4&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAMfi9tITPyo8i5LFaU6sMOJ-ONVQuD5m_ik3apTbwrUQ&oe=6652161A)
+  
+  ![GEOTRANSPORT SHIELD](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443716034_465426402680493_1296209794613495932_n.jpg?stp=cp6_dst-jpg&_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=oPgGhR0o56IQ7kNvgHslAk7&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDUUXaB1DCucx_75kslx0GR1ikzcDQoDNZlcHvkEt2wOg&oe=6652232B)
 
 ## Instalación
 1. Clona este repositorio.
