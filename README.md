@@ -67,13 +67,13 @@ Este archivo contiene el código fuente de un dispositivo IoT que utiliza tecnol
 ![Configuración de los pines](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436235425_458887043334429_6840623238146122829_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=33CE7Dai3KgQ7kNvgHPDgnY&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAUNXS31EZYtOr6iwII6J62bkRhA3AvdteHvx_Cm6nIrw&oe=6644A4EB)
 
 2. Definir direcciones en un sistema de comunicación
-![Direcciones](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436255367_458887033334430_6982264031401776534_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=IrSg-5HfjX4Q7kNvgFuQSaF&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAaed5_TSmqaSHeJNsiLDPnbKccfeiRyYQKeSm0wW4N1w&oe=6644B107)
+![Direcciones](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436255367_458887033334430_6982264031401776534_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=aKeP9BmuVCcQ7kNvgEdTunU&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAZZIGmNwmx2_B_8YQEmakYglIY4DE_mQ0hxBVC0lPMCQ&oe=66521847)
 
 3. Establecimiento de la banda y el factor de dispersión LoRa.
 ![Establecimiento de la banda ](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436232622_458892376667229_3220963062338091565_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=5f2048&_nc_ohc=YJC-9mWhbIEQ7kNvgF4K4kz&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYAE-eJwSnanmugVU1jXMb-amhHWpRuXKkNDfQIciDhAZw&oe=6644BDA5)
 
 4. Recepción de datos del Módulo GPS Neo-6M y Sensor de temperatura y humedad DHT11.
-![Recepción de datos ](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436255910_458888780000922_752188048744724611_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_aid=0&_nc_ohc=PcbgnnOPdpIQ7kNvgGTPL-9&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDqDSiQ1E-bQNng3w-JLSpI3D4tj-7eStghA7m_Ti99ag&oe=6644CFFE)
+![Recepción de datos ](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/436255910_458888780000922_752188048744724611_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_aid=0&_nc_ohc=uk4Ln8q-nWgQ7kNvgH1aGNT&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBI8VYIsLqiJK0uR85tbqincCM3sUsclaheDOT7QCosqQ&oe=6651FEFE)
 
 5. Carga el código en tu dispositivo.
 
@@ -128,7 +128,7 @@ Para nuestro Gateway IoT, es necesario contar con una Raspberry Pi previamente c
 ## Instalación de Servicios
 Utilizaremos contenedores proporcionados por la aplicación IOTstack para la instalación de los servicios necesarios para nuestro proyecto, incluyendo Node-RED, Grafana y InfluxDB.
 
-![Services](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443697865_462038419685958_7255652886975180424_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=dmaw6fgYlloQ7kNvgE3dBK0&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBTVSHxgY8oEc4S16_TDcHHp6JsJSCGtMBFYGOXP34-xg&oe=664B65B4)
+![Services](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443697865_462038419685958_7255652886975180424_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=Ujj-RXDx9IUQ7kNvgE9NOhy&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDUwXEbyTMar30dqYB9eR8ROV3yHDJTf9UEkLmzmOwmSw&oe=6651FD34)
 
 
 1. Descarga y ejecución del menú de IOTstack:
@@ -150,7 +150,7 @@ Utilizaremos contenedores proporcionados por la aplicación IOTstack para la ins
 Para utilizar el servicio Mosquitto, primero debemos asegurarnos de que estamos utilizando el sistema operativo Raspbian Buster.
 - lsb_release -a
 
-![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443873778_462034736352993_8546870462017293521_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=C4295ZQHcGgQ7kNvgEbgXw2&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYDxnZRWu68RIFFAdpskwu17IOZgN6beiUzDkg3MSJswHQ&oe=664B66A0)
+![Comandos](https://scontent.fmex45-1.fna.fbcdn.net/v/t39.30808-6/443873778_462034736352993_8546870462017293521_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=5f2048&_nc_ohc=ds-o1Dum5xUQ7kNvgGmd-Y0&_nc_ht=scontent.fmex45-1.fna&cb_e2o_trans=q&oh=00_AYBpFvZhUpS05W7QYIyhTSXx3bO1hRIo62yvWpV2sYNBjA&oe=6651FE20)
 
 ### Agregar el Repositorio de Mosquitto
 Importa la llave del repositorio y agrega el repositorio Mosquitto correspondiente a tu versión de Raspbian.
